@@ -57,7 +57,7 @@ const Fib = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Enter your index:</label>
+        <label>Enter your index please:</label>
         <input
           value={index}
           onChange={({target: {value}}) => setIndex(value)}
