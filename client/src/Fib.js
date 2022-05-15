@@ -7,11 +7,13 @@ const Fib = () => {
   const [index, setIndex] = useState('');
 
   useEffect(() => {
-    if(index === '') {
-      fetchValues();
-      fetchIndexes();
-    }
-  }, [index])
+    getData();
+  }, []);
+
+  const getData = () => {
+    fetchValues();
+    fetchIndexes();
+  }
 
   const fetchValues = async () => {
     const {data} = await axios.get('/api/values/current');
@@ -29,7 +31,9 @@ const Fib = () => {
     await axios.post('/api/values', {
       index: index,
     });
+
     setIndex('');
+    getData();
   };
 
   const renderValues = () => {
