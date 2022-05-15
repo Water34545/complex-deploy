@@ -7,6 +7,7 @@ const Fib = () => {
   const [index, setIndex] = useState('');
 
   useEffect(() => {
+    console.log('useEffect');
     getData();
   }, []);
 
@@ -16,11 +17,13 @@ const Fib = () => {
   }
 
   const fetchValues = async () => {
+    console.log('fetchValues');
     const {data} = await axios.get('/api/values/current');
     setValues(data);
   }
 
   const fetchIndexes = async () => {
+    console.log('fetchIndexes');
     const {data} = await axios.get('/api/values/all');
     setSeenIndexes(data);
   }
@@ -33,6 +36,7 @@ const Fib = () => {
     });
 
     setIndex('');
+    console.log('handleSubmit');
     getData();
   };
 
