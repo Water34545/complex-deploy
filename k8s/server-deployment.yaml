@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server-deployment
-spec: 
+spec:
   replicas: 3
   selector:
     matchLabels:
@@ -14,18 +14,18 @@ spec:
     spec:
       containers:
         - name: server
-          image: water34545/multi-server
+          image: water34545/multi-server:v5
           ports:
             - containerPort: 5000
           env:
             - name: REDIS_HOST
-              value: redis-cluster-id-service
+              value: redis-cluster-ip-service
             - name: REDIS_PORT
               value: '6379'
             - name: PGUSER
               value: postgres
             - name: PGHOST
-              value: postgres-cluster-id-service
+              value: postgres-cluster-ip-service
             - name: PGPORT
               value: '5432'
             - name: PGDATABASE
